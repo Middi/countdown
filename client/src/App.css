@@ -4,4 +4,5 @@
   background-color: #ecf0fd;
   margin: 0 auto;
   position: relative;
+  box-shadow: 0 0 10px 1px #cccccc;
 }

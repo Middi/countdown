@@ -1,5 +1,7 @@
 article {
     width: 100%;
+    background-color: white;
+    overflow: hidden;
 }
 
 h1 {
@@ -23,10 +25,14 @@ h3 {
     color: #6478CB;
     text-align: center;
     padding: 26px 0;
+    box-sizing: border-box;
+    box-shadow: 0 2px 12px 1px #dddddd;
+    z-index: 2;
+    background-color: #ecf0fd;
 }
 
 .countdown {
-    background-color: white;
+    z-index: 1;
 }
 
 .countdown-inner {
@@ -52,8 +58,20 @@ h3 {
 
 .view-btn {
     background-color: #6579CA;
+    cursor: pointer;
+    transition: ease-in background-color 150ms;
+}
+
+.view-btn:hover {
+    background-color: #5468B9;
 }
 
 .edit-btn {
     background-color: #57A0F4;
+    cursor: pointer;
+    transition: ease-in background-color 150ms;
+}
+
+.edit-btn:hover {
+    background-color: #4690E3;
 }
