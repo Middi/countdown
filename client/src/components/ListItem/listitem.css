@@ -1,0 +1,59 @@
+article {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-size: 2.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #011350;
+}
+
+h3 {
+    font-size: .8rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.title {
+    color: #6478CB;
+    text-align: center;
+    padding: 26px 0;
+}
+
+.countdown {
+    background-color: white;
+}
+
+.countdown-inner {
+    display: flex;
+    max-width: 278px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 132px;
+}
+
+.btn-bar {
+    display: flex;
+}
+
+.btn-bar-child {
+    width: 50%;
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.view-btn {
+    background-color: #6579CA;
+}
+
+.edit-btn {
+    background-color: #57A0F4;
+}
