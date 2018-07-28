@@ -1,0 +1,19 @@
+{
+  "name": "countdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Middi/countdown.git"
+  },
+  "author": "Richard Middleton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Middi/countdown/issues"
+  },
+  "homepage": "https://github.com/Middi/countdown#readme"
+}
