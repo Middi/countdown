@@ -9,7 +9,7 @@
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Middi/countdown.git"
@@ -24,7 +24,9 @@
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
     "express": "^4.16.3",
-    "mongoose": "^5.2.5"
+    "mongoose": "^5.2.5",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.3"
