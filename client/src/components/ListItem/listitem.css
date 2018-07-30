@@ -21,12 +21,12 @@ h3 {
 }
 
 .title {
-    color: #6478CB;
+    color: rgb(57, 57, 57);
     text-align: center;
     padding: 26px 0;
     box-sizing: border-box;
     z-index: 2;
-    background-color: #ecf0fd;
+    background-color: #f2f2f2;
 }
 
 .countdown {
@@ -66,16 +66,6 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.view-btn {
-    background-color: #6579CA;
-    cursor: pointer;
-    transition: ease-in background-color 150ms;
-}
-
-.view-btn:hover {
-    background-color: #5468B9;
-}
-
 .edit-btn {
     background-color: #57A0F4;
     cursor: pointer;
@@ -84,4 +74,14 @@ h3 {
 
 .edit-btn:hover {
     background-color: #4690E3;
+}
+
+.delete-btn {
+    background-color: #dd3939;
+    cursor: pointer;
+    transition: ease-in background-color 150ms;
+}
+
+.delete-btn:hover {
+    background-color: #cc2828;
 }

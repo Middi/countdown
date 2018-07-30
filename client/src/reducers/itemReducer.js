@@ -12,6 +12,13 @@ export default (items = [], action) => {
             console.log('ADD ITEM CALLED', action);
             // Return: 1) take existing array 2) add item to existing array
             return [...items, action.item];
+        case 'DELETE_ITEM':
+            console.log('DELETE ITEM CALLED', action);
+            // Return: 1) take existing array 2) add item to existing array
+            console.log('items ', items);
+            console.log('action ', action);
+            return items.filter(item => item._id !== action.item);
+            
         default: 
             return items;
     }

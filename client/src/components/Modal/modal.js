@@ -60,6 +60,7 @@ class Modal extends Component {
         await apiCalls.createItem(val);
         this.props.addItem(val);
     }
+    
     render() {
         return (
             <div className="modal-bg">
