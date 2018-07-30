@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newItem = new Item({
-        name: req.body.name
+        name: req.body.name,
+        date: req.body.date
     });
     newItem.save().then(item => res.json(item));
 }); 42

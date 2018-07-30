@@ -20,13 +20,11 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
 .title {
     color: #6478CB;
     text-align: center;
     padding: 26px 0;
     box-sizing: border-box;
-    box-shadow: 0 2px 12px 1px #dddddd;
     z-index: 2;
     background-color: #ecf0fd;
 }
@@ -42,6 +40,18 @@ h3 {
     justify-content: space-between;
     align-items: center;
     height: 132px;
+}
+
+.count {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.days {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-bar {
