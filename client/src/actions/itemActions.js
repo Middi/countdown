@@ -8,7 +8,7 @@ export const addItem = (item) => ({
     item
 });
 
-export const deleteItem = (item) => ({
+export const deleteItem = (id) => ({
     type: 'DELETE_ITEM',
-    item
+    id
 });

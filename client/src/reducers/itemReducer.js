@@ -12,7 +12,7 @@ export default (items = [], action) => {
             return [...items, action.item];
         case 'DELETE_ITEM':
             console.log('DELETE ITEM CALLED', action);
-            return items.filter(item => item._id !== action.item);
+            return items.filter(item => item.id !== action.id);
         default: 
             return items;
     }

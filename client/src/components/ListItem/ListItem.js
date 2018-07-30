@@ -6,9 +6,8 @@ import { connect } from "react-redux";
 import { deleteItem } from "../../actions/itemActions";
 
 class ListItem extends Component {
-
     handleDelete = () => {
-        const id = this.props.stuff._id;
+        const id = this.props.stuff.id;
         this.deleteItem(id);
         this.props.deleteItem(id);
     };

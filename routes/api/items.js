@@ -13,14 +13,18 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const newItem = new Item({
         name: req.body.name,
-        date: req.body.date
+        date: req.body.date,
+        id: req.body.id
     });
     newItem.save().then(item => res.json(item));
-}); 42
+});
 
 router.delete('/:id', (req, res) => {
-    Item.findById(req.params.id)
-        .then(item => item.remove().then(() => res.json({ succes: true })))
-        .catch(err => res.status(404).json({ success: false }))
+    Item.findOneAndRemove({ id: req.params.id },  function(err) {
+        if (err)
+            res.send(err);
+        else
+            res.json({ message: 'Item Deleted!'});
+    });
 });
 module.exports = router;

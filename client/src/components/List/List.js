@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { loadItem } from "../../actions/itemActions";
 
 class List extends Component {
-    
+
   async loadItems() {
     let items = await apiCalls.getItems();
     this.props.loadItem(items);
@@ -19,7 +19,7 @@ class List extends Component {
 
   render() {
     const items = this.props.items.map(item => (
-      <ListItem stuff={item} key={item._id} />
+      <ListItem stuff={item} key={item.id} />
     ));
     return <div>{this.props.items.length > 0 ? items : "Loading"}</div>;
   }

@@ -11,6 +11,10 @@ const ItemSchema = new Schema({
     date: {
         type: String,
         required: true
+    },
+    id: {
+        type: String,
+        required: true
     }
 });
 

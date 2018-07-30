@@ -6,13 +6,13 @@ import { connect } from 'react-redux';
 import { toggleModal } from '../../actions/modalActions';
 import { addItem } from '../../actions/itemActions';
 
+const uuidv4 = require('uuid/v4');
 
 class Modal extends Component {
 
     state = {
         newEvent: {}
     }
-
 
     change = e => {
         // Spread state into new variable
@@ -28,8 +28,9 @@ class Modal extends Component {
         e.preventDefault();
         const date = this.state.newEvent.date + 'T' + this.state.newEvent.time;
         const name = this.state.newEvent.name;
-
+        
         const NS = {
+            id: uuidv4(),
             date,
             name
         }
