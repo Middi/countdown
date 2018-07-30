@@ -2,23 +2,9 @@ import React, { Component } from 'react';
 import './style.css';
 import * as apiCalls from '../../api';
 
-
 import { connect } from 'react-redux';
 import { toggleModal } from '../../actions/modalActions';
 import { addItem } from '../../actions/itemActions';
-
-// What parts of store are available to the component
-const mapStateToProps = state => ({
-    isModalOpen: state.isModalOpen
-});
-
-// What actions are available to the component
-const mapDispatchToProps = dispatch => ({
-    // available in Forecast class as this.props.loadForecast()
-    toggleModal: () => dispatch(toggleModal()),
-    addItem: item => dispatch(addItem(item))
-});
-
 
 
 class Modal extends Component {
@@ -60,7 +46,7 @@ class Modal extends Component {
         await apiCalls.createItem(val);
         this.props.addItem(val);
     }
-    
+
     render() {
         return (
             <div className="modal-bg">
@@ -83,6 +69,14 @@ class Modal extends Component {
 }
 
 
+const mapStateToProps = state => ({
+    isModalOpen: state.isModalOpen
+});
+
+const mapDispatchToProps = dispatch => ({
+    toggleModal: () => dispatch(toggleModal()),
+    addItem: item => dispatch(addItem(item))
+});
 
 export default connect(
     mapStateToProps,
