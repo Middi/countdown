@@ -1,7 +1,10 @@
-export const loadItem = (item = {}) => ({
+export const loadItem = (items = []) => ({
     type: 'LOAD_ITEM',
-    item
+    items
 });
 
-
+export const addItem = (item) => ({
+    type: 'ADD_ITEM',
+    item
+});
 

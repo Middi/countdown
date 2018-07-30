@@ -4,6 +4,15 @@ import Add from './components/Add/Add';
 import List from './components/List/List';
 import Modal from './components/Modal/modal';
 
+
+import { connect } from 'react-redux';
+
+// What parts of store are available to the component
+const mapStateToProps = state => ({
+    isModalOpen: state.isModalOpen
+  });
+  
+
 class App extends Component {
 
   render() {
@@ -11,10 +20,12 @@ class App extends Component {
       <div className="App">
         <Add />
         <List />
-        {/* <Modal /> */}
+        {this.props.isModalOpen && <Modal />}
       </div>
     );
   }
 }
 
-export default App;
+export default connect(
+  mapStateToProps
+)(App);

@@ -1,11 +1,13 @@
 import { createStore, combineReducers } from 'redux';
 
 import itemReducer from '../reducers/itemReducer';
+import modalReducer from '../reducers/modalReducer';
 
 export default () => (
     createStore(
         combineReducers({
-            item: itemReducer
+            items: itemReducer,
+            isModalOpen: modalReducer
         })
     )
 )

@@ -17,7 +17,6 @@ class Wrapper extends React.Component {
             console.log('store state:', this.store.getState());
         });
 
-        console.log(this.store.getState());
         return (
             <Provider store={this.store}>
                 <App />

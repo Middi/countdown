@@ -1,35 +1,8 @@
 import React, { Component } from "react";
-import { connect } from 'react-redux';
 import "./listitem.css";
 
+export default class ListItem extends Component {
 
-import {loadItem} from '../../actions/itemActions';
-
-// What parts of store are available to the component
-const mapStateToProps = state => ({
-    item: state.item
-  });
-  
-  // What actions are available to the component
-  const mapDispatchToProps = dispatch => ({
-    // available in Forecast class as this.props.loadForecast()
-    loadItem: item => dispatch(loadItem(item))
-    // ** ADD CLEAR_FORECAST
-  });
-
-
-class ListItem extends Component {
-
-    fetch = (hello) => {
-        this.props.loadForecast({
-            name: hello
-        });
-    }
-
-
-  componentDidMount() {
-    fetch('hello');
-  }
 
   render() {
     const {stuff} = this.props;
@@ -85,11 +58,3 @@ class ListItem extends Component {
         )
   }
 }
-
-
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(ListItem);
-  

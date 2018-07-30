@@ -1,34 +1,89 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.css';
+import * as apiCalls from '../../api';
 
 
-const Modal = props => (
-    <div className="modal-bg">
-        <div className="modal">
-            <span onClick={() => props.closeModal()} className="close">+</span>
-            <h1 className="event-title">Add Event</h1>
-            <form>
-                <label>Event</label>
-                <input type="text" name="name" onKeyUp={e => props.change(e)} />
-                <label>Location</label>
-                <input type="text" name="location" onKeyUp={e => props.change(e)} />
-                <label>Start Date</label>
-                <input type="date" name="dateStart" onKeyUp={e => props.change(e)} />
-                <label>Start Time</label>
-                <input type="time" name="timeStart" onKeyUp={e => props.change(e)} />
-                <label>End Date</label>
-                <input type="date" name="dateEnd" onKeyUp={e => props.change(e)} />
-                <label>End Time</label>
-                <input type="time" name="timeEnd" onKeyUp={e => props.change(e)} />
-                <label>Shift Type</label>
-                <select name="shiftType" onChange={e => props.change(e)}>
-                    <option value="1000" name="shiftType">Full Day</option>
-                    <option value="500" name="shiftType">Half Day</option>
-                </select>
-                <button onClick={(e) => props.clickSubmit(e)}>Submit</button>
-            </form>
-        </div>
-    </div>
-)
+import { connect } from 'react-redux';
+import { toggleModal } from '../../actions/modalActions';
+import { addItem } from '../../actions/itemActions';
 
-export default Modal;
+// What parts of store are available to the component
+const mapStateToProps = state => ({
+    isModalOpen: state.isModalOpen
+});
+
+// What actions are available to the component
+const mapDispatchToProps = dispatch => ({
+    // available in Forecast class as this.props.loadForecast()
+    toggleModal: () => dispatch(toggleModal()),
+    addItem: item => dispatch(addItem(item))
+});
+
+
+
+class Modal extends Component {
+
+    state = {
+        newEvent: {}
+    }
+
+
+    change = e => {
+        // Spread state into new variable
+        const NS = { ...this.state };
+        // Change what needs to be changed
+        NS.newEvent[e.target.name] = e.target.value;
+        // Set state with new version of state
+        this.setState(NS);
+    }
+
+
+    clickSubmit = e => {
+        e.preventDefault();
+        const date = this.state.newEvent.date + 'T' + this.state.newEvent.time;
+        const name = this.state.newEvent.name;
+
+        const NS = {
+            date,
+            name
+        }
+
+        this.addItem(NS);
+        const newState = { ...this.state };
+        newState.event = {};
+        this.setState(newState);
+        this.props.toggleModal();
+    }
+
+
+    async addItem(val) {
+        await apiCalls.createItem(val);
+        this.props.addItem(val);
+    }
+    render() {
+        return (
+            <div className="modal-bg">
+                <div className="modal">
+                    <span onClick={this.props.toggleModal} className="close">+</span>
+                    <h1 className="event-title">Add Event</h1>
+                    <form>
+                        <label>Name</label>
+                        <input type="text" name="name" onKeyUp={e => this.change(e)} />
+                        <label>Date</label>
+                        <input type="date" name="date" onKeyUp={e => this.change(e)} />
+                        <label>Time</label>
+                        <input type="time" name="time" onKeyUp={e => this.change(e)} />
+                        <button onClick={(e) => this.clickSubmit(e)}>Submit</button>
+                    </form>
+                </div>
+            </div>
+        )
+    }
+}
+
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Modal);
