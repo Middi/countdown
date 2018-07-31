@@ -70,7 +70,7 @@ class ListItem extends Component {
                         <h2 className="seperator">:</h2>
                         <div className="count hours">
                             <h2>{hours}</h2>
-                            <h4>HOUR</h4>
+                            <h4>HOURS</h4>
                         </div>
                         <h2 className="seperator">:</h2>
                         <div className="count mins">
