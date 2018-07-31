@@ -1,27 +1,29 @@
 article {
-    width: 100%;
+    max-width: 400px;
     background-color: #F7F7F7;
     border-radius: 6px;
     overflow: hidden;
-    margin: 32px 0;
+    margin: 32px auto;
+    box-sizing: border-box;
+    padding: 0 42px;
     box-shadow: 1px 1px 16px 1px rgba(0,0,0,0.2);
     position: relative;
     transition: ease-in box-shadow 100ms;
+    color: rgb(57, 57, 57);
 }
 
 article:hover {
-    box-shadow: 2px 1px 16px 3px rgba(0,0,0,0.28);
+    box-shadow: 2px 1px 16px 3px rgba(0,0,0,0.24);
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 h2 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: #011350;
 }
 
 h3 {
@@ -30,12 +32,16 @@ h3 {
 }
 
 .title {
-    color: rgb(57, 57, 57);
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0 0;
     box-sizing: border-box;
     z-index: 2;
-    background-color: #f2f2f2;
+}
+
+.hr-class {
+    border: 0;
+    height: 1px;
+    background: rgb(177, 177, 177);
 }
 
 .countdown-inner {
@@ -44,7 +50,7 @@ h3 {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    height: 120px;
+    padding: 28px 0;
 }
 
 .count {
@@ -63,11 +69,12 @@ h3 {
     position: absolute;
     top: 14px;
     right: 14px;
-    height: 34px;
-    width: 34px;
+    height: 28px;
+    width: 26px;
+    padding-left: 2px;
     text-align: center;
     color: white;
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: #dd3939;
     cursor: pointer;
     transition: ease-in background-color 150ms;
@@ -80,4 +87,19 @@ h3 {
 
 .delete-btn:hover {
     background-color: #cc2828;
+}
+
+.hide {
+	animation: fade-out 400ms ease-in-out 0s forwards;
+}
+
+.is-gone {
+    background-color: #d5d5d5;
+    color: rgb(155, 155, 155)
+}
+
+@keyframes fade-out {
+	100% {
+		opacity: 0;
+	}
 }

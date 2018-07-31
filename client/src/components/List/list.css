@@ -1,6 +1,33 @@
 .list {
-    margin-top: 90px;
+    margin-top: 30px;
     padding: 28px;
     z-index: 2;
     position: relative;
+    opacity: 0;
+}
+
+.no-items {
+    padding: 52px 0;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.fade-list {
+    animation: fade-in 900ms ease-in forwards;
+}
+
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+    }
+    70%, 100% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(20px);
+    }
+	100% {
+        transform: translateY(30px);
+	}
 }

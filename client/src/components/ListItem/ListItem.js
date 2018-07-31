@@ -6,7 +6,15 @@ import { connect } from "react-redux";
 import { deleteItem } from "../../actions/itemActions";
 
 class ListItem extends Component {
+
+    state = {
+        deleting: false,
+        isGone: false
+    }
+
     handleDelete = () => {
+        const deleting = true;
+        this.setState({ deleting })
         const id = this.props.stuff.id;
         this.deleteItem(id);
         this.props.deleteItem(id);
@@ -16,11 +24,23 @@ class ListItem extends Component {
         await apiCalls.removeItem(id);
     }
 
+    componentWillMount() {
+        this.date();
+    }
+    
+    date = () => {
+        if(Date.now() > new Date(this.props.stuff.date)) {
+            const isGone = true;
+            return this.setState({ isGone })
+        }
+    }
+
     render() {
         const { stuff } = this.props;
 
         const date_future = new Date(stuff.date);
         const date_now = Date.now();
+
 
         // get total seconds between the times
         let delta = Math.abs(date_future - date_now) / 1000;
@@ -35,10 +55,11 @@ class ListItem extends Component {
         delta -= minutes * 60;
 
         return (
-            <article>
+            <article className={this.state.isGone ? 'is-gone' : ''}>
                 <div className="title">
                     <h3>COUNTDOWN TO</h3>
                     <h1>{stuff.name}</h1>
+                    <hr className="hr-class"/>
                 </div>
                 <div className="countdown">
                     <div className="countdown-inner">

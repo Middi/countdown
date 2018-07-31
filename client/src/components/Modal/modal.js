@@ -52,8 +52,13 @@ class Modal extends Component {
         return (
             <div className="modal-bg">
                 <div className="modal">
-                    <span onClick={this.props.toggleModal} className="close">+</span>
+                <div
+                    onClick={this.props.toggleModal} 
+                    className="delete-btn">
+                        <p className="rotate">+</p>
+                </div>
                     <h1 className="event-title">Add Event</h1>
+                    <hr />
                     <form>
                         <label>Name</label>
                         <input type="text" name="name" onKeyUp={e => this.change(e)} />
