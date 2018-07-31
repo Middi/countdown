@@ -1,7 +1,16 @@
 article {
     width: 100%;
-    background-color: white;
+    background-color: #F7F7F7;
+    border-radius: 6px;
     overflow: hidden;
+    margin: 32px 0;
+    box-shadow: 1px 1px 16px 1px rgba(0,0,0,0.2);
+    position: relative;
+    transition: ease-in box-shadow 100ms;
+}
+
+article:hover {
+    box-shadow: 2px 1px 16px 3px rgba(0,0,0,0.28);
 }
 
 h1 {
@@ -23,14 +32,10 @@ h3 {
 .title {
     color: rgb(57, 57, 57);
     text-align: center;
-    padding: 26px 0;
+    padding: 20px 0;
     box-sizing: border-box;
     z-index: 2;
     background-color: #f2f2f2;
-}
-
-.countdown {
-    z-index: 1;
 }
 
 .countdown-inner {
@@ -39,7 +44,7 @@ h3 {
     margin: 0 auto;
     justify-content: space-between;
     align-items: center;
-    height: 132px;
+    height: 120px;
 }
 
 .count {
@@ -54,32 +59,23 @@ h3 {
     align-items: center;
 }
 
-.btn-bar {
-    display: flex;
-}
-
-.btn-bar-child {
-    width: 50%;
-    text-align: center;
-    padding: 20px 0;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.edit-btn {
-    background-color: #57A0F4;
-    cursor: pointer;
-    transition: ease-in background-color 150ms;
-}
-
-.edit-btn:hover {
-    background-color: #4690E3;
-}
-
 .delete-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    height: 34px;
+    width: 34px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
     background-color: #dd3939;
     cursor: pointer;
     transition: ease-in background-color 150ms;
+    border-radius: 4px;
+}
+
+.rotate {
+    transform: rotate(45deg);
 }
 
 .delete-btn:hover {

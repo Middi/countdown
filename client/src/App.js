@@ -15,10 +15,34 @@ const mapStateToProps = state => ({
 
 class App extends Component {
 
+  state = {
+    isTop: true,
+    closeToTop: false
+  }
+
+  componentDidMount() {
+    document.addEventListener('scroll', () => {
+      const isTop = window.scrollY < 20;
+      console.log(window.scrollY);
+      if (isTop !== this.state.isTop) {
+          this.setState({ isTop })
+      }
+      const closeToTop = window.scrollY > 62;
+      if (closeToTop !== this.state.closeToTop) {
+        this.setState({ closeToTop })
+    }
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Add />
+        <header className={this.state.closeToTop ? 'header-ontop' : ''}>
+        <div className={this.state.isTop ? 'animate animated-out' : 'animate animated'}></div>
+        <h1 className={this.state.isTop ? 'header-title title-out' : 'header-title title-animate'}>CountDown</h1>
+        <Add top={this.state.isTop} />
+        </header>
+        
         <List />
         {this.props.isModalOpen && <Modal />}
       </div>

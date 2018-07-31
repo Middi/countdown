@@ -21,7 +21,7 @@ class List extends Component {
     const items = this.props.items.map(item => (
       <ListItem stuff={item} key={item.id} />
     ));
-    return <div>{this.props.items.length > 0 ? items : "Loading"}</div>;
+    return <div className="list">{this.props.items.length > 0 ? items : "Loading"}</div>;
   }
 }
 

@@ -20,7 +20,7 @@ class Add extends Component {
 
   render() {
     return (
-            <div onClick={this.props.toggleModal} className="add-btn">
+            <div onClick={this.props.toggleModal} className={this.props.top ? "add-btn" : "add-btn white" }>
                 +
             </div>
         )

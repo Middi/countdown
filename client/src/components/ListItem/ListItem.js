@@ -58,12 +58,12 @@ class ListItem extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="btn-bar">
-                    <div className="btn-bar-child edit-btn">EDIT</div>
-                    <div onClick={this.handleDelete} className="btn-bar-child delete-btn">
-                        DELETE
-          </div>
+                <div
+                    onClick={this.handleDelete}
+                    className="delete-btn">
+                        <p className="rotate">+</p>
                 </div>
+                
             </article>
         );
     }
