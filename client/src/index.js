@@ -5,7 +5,6 @@ import configureStore from './store/configureStore';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
 
 
 class Wrapper extends React.Component {
@@ -26,4 +25,3 @@ class Wrapper extends React.Component {
 }
 
 ReactDOM.render(<Wrapper />, document.getElementById('root'));
-registerServiceWorker();
