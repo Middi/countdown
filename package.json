@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "client-install": "npm install --prefix client",
-    "start": "node index.js",
-    "server": "nodemon index.js",
     "client": "cd client && npm run start",
-    "heroku-postbuild": "cd client && npm install && npm run build",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
