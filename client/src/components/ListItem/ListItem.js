@@ -41,9 +41,8 @@ class ListItem extends Component {
         const date_future = new Date(stuff.date);
         const date_now = Date.now();
 
-
         // get total seconds between the times
-        let delta = Math.abs(date_future - date_now) / 1000;
+        let delta = (date_future - date_now) / 1000;
         // calculate (and subtract) whole days
         const days = Math.floor(delta / 86400);
         delta -= days * 86400;
