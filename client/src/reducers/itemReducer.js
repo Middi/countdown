@@ -9,7 +9,7 @@ export default (items = [], action) => {
             return [...action.items];
         case 'ADD_ITEM':
             console.log('ADD ITEM CALLED', action);
-            return [...items, action.item];
+            return [ action.item, ...items];
         case 'DELETE_ITEM':
             console.log('DELETE ITEM CALLED', action);
             return items.filter(item => item.id !== action.id);
