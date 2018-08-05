@@ -26,7 +26,8 @@ class App extends Component {
       if (isTop !== this.state.isTop) {
         this.setState({ isTop })
       }
-      const closeToTop = window.scrollY > 62;
+      const closeToTop = window.scrollY > 55;
+      console.log(window.scrollY)
       if (closeToTop !== this.state.closeToTop) {
         this.setState({ closeToTop })
       }
