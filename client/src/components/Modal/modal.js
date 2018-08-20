@@ -89,8 +89,6 @@ class Modal extends Component {
                             dateFormat="LT"
                             timeCaption="Time"
                         />
-                        {/* <input type="date" name="date" onKeyUp={e => this.change(e)} /> */}
-                        {/* <input type="time" name="time" onKeyUp={e => this.change(e)} /> */}
                         <button className="submit-button"onClick={(e) => this.clickSubmit(e)}>Submit</button>
                     </form>
                 </div>
