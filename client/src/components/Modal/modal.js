@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import './style.css';
 import * as apiCalls from '../../api';
 
+
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { toggleModal } from '../../actions/modalActions';
 import { addItem } from '../../actions/itemActions';
@@ -11,7 +15,8 @@ const uuidv4 = require('uuid/v4');
 class Modal extends Component {
 
     state = {
-        newEvent: {}
+        newEvent: {},
+        startDate: moment()
     }
 
     change = e => {
@@ -26,7 +31,7 @@ class Modal extends Component {
 
     clickSubmit = e => {
         e.preventDefault();
-        const date = this.state.newEvent.date + 'T' + this.state.newEvent.time;
+        const date = this.state.startDate._d;
         const name = this.state.newEvent.name;
         
         const NS = {
@@ -40,6 +45,13 @@ class Modal extends Component {
         newState.event = {};
         this.setState(newState);
         this.props.toggleModal();
+    }
+
+
+    handleChange = date => {
+        this.setState({
+            startDate: date
+        });
     }
 
 
@@ -63,10 +75,23 @@ class Modal extends Component {
                         <label>Name</label>
                         <input type="text" name="name" onKeyUp={e => this.change(e)} />
                         <label>Date</label>
-                        <input type="date" name="date" onKeyUp={e => this.change(e)} />
+                        <DatePicker className="react-100-width"
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                        />
                         <label>Time</label>
-                        <input type="time" name="time" onKeyUp={e => this.change(e)} />
-                        <button onClick={(e) => this.clickSubmit(e)}>Submit</button>
+                        <DatePicker
+                            selected={this.state.startDate}
+                            onChange={this.handleChange}
+                            showTimeSelect
+                            showTimeSelectOnly
+                            timeIntervals={15}
+                            dateFormat="LT"
+                            timeCaption="Time"
+                        />
+                        {/* <input type="date" name="date" onKeyUp={e => this.change(e)} /> */}
+                        {/* <input type="time" name="time" onKeyUp={e => this.change(e)} /> */}
+                        <button className="submit-button"onClick={(e) => this.clickSubmit(e)}>Submit</button>
                     </form>
                 </div>
             </div>

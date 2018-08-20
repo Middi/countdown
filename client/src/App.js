@@ -38,8 +38,8 @@ class App extends Component {
     return (
       <div className="App">
         <header className={this.state.closeToTop ? 'header-ontop' : ''}>
-        <div className={this.state.isTop ? 'animate animated-out' : 'animate animated'}></div>
-        <h1 className={this.state.isTop ? 'header-title title-out' : 'header-title title-animate'}>CountDown</h1>
+          <div className={this.state.isTop ? 'animate animated-out' : 'animate animated'}></div>
+          <h1 className={this.state.isTop ? 'header-title title-out' : 'header-title title-animate'}>CountDown</h1>
         <Add top={this.state.isTop} />
         </header>
         
