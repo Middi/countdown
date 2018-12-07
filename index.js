@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // DB Config
-// const db = require('./keys').mongoURI;
+const db = require('./keys').mongoURI;
 
 
 // Use Routes
@@ -24,7 +24,7 @@ app.get('*', (req, res) => {
 });  
 
 // Connect to Mongo
-mongoose.connect(process.env.mongoURI)
+mongoose.connect(db || process.env.mongoURI)
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
